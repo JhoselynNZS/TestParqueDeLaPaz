@@ -1,0 +1,54 @@
+﻿@model IEnumerable<WebApplication1.Models.Animal>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Listado de sonidos</title>
+</head>
+<body>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.codigo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.sonidos)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.codigo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.sonidos)
+                </td>
+            </tr>
+        }
+
+    </table>
+
+    <div>
+        <form id="form" method="post" action="/Animal/Index">
+            <p> @Html.ActionLink("Desea Reproducir Cancion?", "Index", "Cancion", new { nota = "pep" }, null) </p>
+
+        </form>
+    </div>
+
+</body>
+</html>
